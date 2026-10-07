@@ -85,4 +85,20 @@ const frases=[
 const texts=document.getElementById('texts');
 frases.forEach((f,i)=>{
 const d=document.createElement('div');d.className=i%4==0?'t big':'t';d.textContent=f;
-d
+d.style.left=(5+Math.random()*80)+'vw';d.style.top=(8+Math.random()*82)+'vh';
+d.style.animationDelay=(Math.random()*6)+'s';d.style.animationDuration=(8+Math.random()*8)+'s';
+if(f.includes('Contigo todo')||f.includes('Feliz Día'))d.className='t big';
+texts.appendChild(d);
+});
+
+let player,ready=false,playing=false;
+function onYouTubeIframeAPIReady(){player=new YT.Player('yt',{height:'1',width:'1',videoId:'Z1c3SXLmAUg',playerVars:{autoplay:0,loop:1,playlist:'Z1c3SXLmAUg'},events:{onReady:e=>{ready=true;e.target.setVolume(70)}}})}
+const tap=document.getElementById('tap');
+document.getElementById('startBtn').onclick=()=>{
+tap.classList.add('hidden');if(ready){player.playVideo();playing=true}
+const msgs=["Contigo todo lugar es bonito","Esta flor guarda un abrazo para ti","Para Jetzul Adaly, mi universo entero 🌻💜","Con amor, Edgar Daniel"];
+let idx=0;setInterval(()=>{document.querySelector('.mainMsg').textContent=msgs[idx%msgs.length];document.getElementById('bottomMsg').textContent=msgs[(idx+1)%msgs.length];idx++},3500);
+};
+</script>
+</body>
+</html>
