@@ -2,63 +2,87 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Jetzul Adaly</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<title>Feliz Día de las Flores Amarillas - Jetzul Adaly</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#070010;overflow:hidden;height:100vh;width:100vw}
+body{background:radial-gradient(ellipse at center,#4a3a0a 0%,#1a1400 40%,#050300 100%);overflow:hidden;height:100vh;width:100vw;font-family:'Poppins',sans-serif}
 canvas{position:fixed;inset:0;z-index:1}
-.content{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px;pointer-events:none}
-.photoWrap{position:relative;width:165px;height:165px;pointer-events:auto}
-.ring{position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(#ffeb3b,#ff00ff,#ab47bc,#ffeb3b);animation:spin 3s linear infinite;filter:blur(0.5px)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.photoWrap img{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid white;z-index:2;box-shadow:0 0 25px #ffeb3b}
-.card{margin-top:14px;background:rgba(15,5,25,0.45);backdrop-filter:blur(6px);border:1px solid rgba(255,235,59,0.35);border-radius:26px;padding:18px 18px;max-width:360px;width:92%;text-align:center;pointer-events:auto;box-shadow:0 0 30px rgba(0,0,0,0.7)}
-h1{font-family:'Great Vibes',cursive;color:#ffeb3b;font-size:1.9rem;text-shadow:0 0 15px #ff9800}
-h1 span{color:#fff;display:block;font-size:2.7rem}
-.msg{color:#f0e6ff;font-size:0.90rem;line-height:1.55;margin-top:10px;font-family:'Poppins',sans-serif}
-.sig{font-family:'Great Vibes',cursive;color:#d9a6ff;font-size:2rem;margin-top:10px}
-.btn{margin-top:14px;background:linear-gradient(135deg,#d57ee3,#ffeb3b);color:#2d0a3a;border:none;padding:11px 24px;border-radius:50px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif}
-#tap{position:fixed;inset:0;z-index:20;background:radial-gradient(circle at center,#1c0a32 0%,#05000a 85%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s}
+.center{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;display:flex;flex-direction:column;align-items:center}
+.planetWrap{position:relative;width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.ring{position:absolute;width:480px;height:120px;top:62%;left:50%;transform:translate(-50%,-50%) rotateX(75deg);border-radius:50%;background:repeating-linear-gradient(90deg,#ffeb3b 0px,#fff176 8px,#ffb300 16px,#ffeb3b 24px);box-shadow:0 0 40px #ffeb3b,0 0 80px rgba(255,235,59,0.6);z-index:1;animation:ringSpin 8s linear infinite}
+@keyframes ringSpin{0%{filter:brightness(1)}50%{filter:brightness(1.3)}100%{filter:brightness(1)}}
+.planet{position:absolute;width:210px;height:210px;background:radial-gradient(circle at 30% 30%,#222,#000 70%);border-radius:50%;top:55%;left:50%;transform:translate(-50%,-50%);z-index:3;box-shadow:inset -20px -10px 30px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.8)}
+.flowerMain{position:absolute;z-index:4;bottom:52%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.stem{width:10px;height:90px;background:linear-gradient(to bottom,#6abf59,#2e7d32);border-radius:5px;margin-top:-10px;position:relative}
+.leaf{position:absolute;width:58px;height:32px;background:linear-gradient(135deg,#7ecb6f,#3a9a2e);border-radius:0 100% 0 100%;top:30px}
+.leaf.l1{left:-50px;transform:rotate(-25deg)} .leaf.l2{right:-50px;transform:rotate(25deg) scaleX(-1)}
+.sun{position:relative;width:170px;height:170px}
+.petal{position:absolute;width:42px;height:75px;background:linear-gradient(to top,#ffb300,#ffeb3b);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;left:50%;top:50%;transform-origin:50% 100%;box-shadow:0 0 8px rgba(255,235,59,0.6)}
+.centerPhoto{position:absolute;width:72px;height:72px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;border:3px solid #5d4037;z-index:5;box-shadow:0 0 15px rgba(0,0,0,0.8)}
+.centerPhoto img{width:100%;height:100%;object-fit:cover}
+.texts{position:fixed;inset:0;z-index:6;pointer-events:none}
+.t{position:absolute;color:#fff9c4;font-size:0.72rem;white-space:nowrap;text-shadow:0 0 8px #ffb300;font-family:'Poppins',sans-serif;opacity:0.9;animation:floatTxt 12s linear infinite}
+.t b{color:#ffeb3b}
+.t.big{font-family:'Dancing Script',cursive;font-size:1.9rem;color:#fff;text-shadow:0 0 15px #ffeb3b,0 0 30px #ff9800;white-space:nowrap}
+.t.big2{font-family:'Dancing Script',cursive;font-size:2.1rem;color:#ffeb3b}
+@keyframes floatTxt{0%{transform:translateY(0) rotate(0deg)}100%{transform:translateY(-15px) rotate(2deg)}}
+.topTitle{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:10;font-family:'Dancing Script',cursive;color:#ffeb3b;font-size:2rem;text-align:center;text-shadow:0 0 20px #ff9800,0 0 40px #ffeb3b;white-space:nowrap}
+.mainMsg{margin-top:8px;font-family:'Dancing Script',cursive;color:#fff;font-size:2.2rem;text-shadow:0 0 15px #ffb300;white-space:nowrap;z-index:10}
+.bottomMsg{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:10;font-family:'Dancing Script',cursive;color:#ffe082;font-size:1.5rem;text-align:center;text-shadow:0 0 10px #000;white-space:nowrap}
+.bouquet{position:fixed;z-index:4;font-size:52px;filter:drop-shadow(0 0 10px rgba(255,235,59,0.5));pointer-events:none}
+#tap{position:fixed;inset:0;z-index:50;background:radial-gradient(circle,#3a2a08,#050300);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#ffeb3b;transition:1s}
 #tap.hidden{opacity:0;pointer-events:none}
-#tap h2{font-family:'Great Vibes',cursive;color:#ffeb3b;font-size:3.3rem;text-align:center}
-.flowers{position:fixed;inset:0;z-index:2;pointer-events:none}
-.flower{position:absolute;animation:fall linear forwards}
-@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg) scale(0.5);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(110vh) rotate(360deg) scale(1.1);opacity:0}}
+.btn{margin-top:18px;padding:12px 28px;border:2px solid #ffeb3b;border-radius:30px;background:rgba(255,235,59,0.15);color:#ffeb3b;cursor:pointer}
 </style>
 </head>
 <body>
-<canvas id="galaxy"></canvas>
-<div class="flowers" id="flowers"></div>
+<canvas id="bg"></canvas>
 
-<div id="tap"><h2>Mi Galaxia Eres Tú<br>🌻</h2><p style="color:#d0c0e0;margin-top:10px">Para Jetzul Adaly</p><button class="btn" id="initBtn">✨ TOCA PARA INICIAR ✨</button></div>
+<div id="tap"><div style="font-family:'Dancing Script',cursive;font-size:3rem;text-align:center">Feliz Día de las<br>Flores Amarillas 🌻</div><div style="margin-top:8px">Para Jetzul Adaly</div><button class="btn" id="startBtn">✨ Toca para ver tu galaxia ✨</button></div>
 
-<div class="content">
-<div class="photoWrap"><div class="ring"></div><img src="esposa.jpg" alt="Jetzul Adaly"></div>
-<div class="card">
-<h1>Mi universo eres tú <span>Jetzul Adaly</span></h1>
-<p class="msg">Si pudiera regalarte el universo, lo haría. Pero como no puedo, te hice una galaxia donde cada estrella lleva tu nombre y cada flor amarilla es un te amo. Eres mi todo.</p>
-<div class="sig">Galaxya 🌻💜</div>
-<button class="btn" id="musicBtn">🎵 Toca para nuestra canción</button>
+<div class="topTitle">Feliz Día de las Flores Amarillas</div>
+
+<div class="texts" id="texts"></div>
+
+<div class="center">
+<div class="planetWrap">
+<div class="ring"></div>
+<div class="planet"></div>
+<div class="flowerMain">
+<div class="sun" id="sun"></div>
+<div class="stem"><div class="leaf l1"></div><div class="leaf l2"></div></div>
 </div>
 </div>
+<div class="mainMsg">Contigo todo lugar es bonito</div>
+</div>
+
+<div class="bottomMsg" id="bottomMsg">Esta flor guarda un abrazo para ti 🌻</div>
+
+<div class="bouquet" style="top:5%;left:0%">💐</div>
+<div class="bouquet" style="top:8%;right:2%;font-size:68px">🌻</div>
+<div class="bouquet" style="bottom:15%;left:1%;font-size:64px">🌻</div>
+<div class="bouquet" style="bottom:8%;right:3%;font-size:70px">💐</div>
 
 <div id="yt" style="position:fixed;width:1px;height:1px;opacity:0"></div>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-const canvas=document.getElementById('galaxy'),ctx=canvas.getContext('2d'),flowers=document.getElementById('flowers');
-let w,h,particles=[],cx,cy,player,ready=false;
-function rs(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;cx=w/2;cy=h/2}rs();addEventListener('resize',rs);
-function onYouTubeIframeAPIReady(){player=new YT.Player('yt',{height:'1',width:'1',videoId:'Z1c3SXLmAUg',playerVars:{autoplay:0,loop:1,playlist:'Z1c3SXLmAUg'},events:{onReady:e=>{ready=true;e.target.setVolume(75)}}})}
-class P{constructor(a,r,s,c){this.a=a;this.r=r;this.s=s;this.c=c;this.sz=Math.random()*7+4;this.isFlower=Math.random()<0.65}up(){this.a+=this.s;this.x=cx+Math.cos(this.a)*this.r;this.y=cy+Math.sin(this.a)*this.r*0.6}draw(){ctx.save();ctx.translate(this.x,this.y);ctx.rotate(this.a);ctx.fillStyle=this.c;ctx.shadowBlur=12;ctx.shadowColor=this.c;if(this.isFlower){for(let i=0;i<5;i++){ctx.rotate(6.283/5);ctx.beginPath();ctx.ellipse(0,this.sz/2,this.sz/2,this.sz,0,0,6.283);ctx.fill()}ctx.fillStyle='#ffeb3b';ctx.beginPath();ctx.arc(0,0,this.sz/3,0,6.283);ctx.fill()}else{ctx.beginPath();ctx.arc(0,0,this.sz/2.5,0,6.283);ctx.fill()}ctx.restore()}}
-for(let i=0;i<450;i++){let r=Math.random()*Math.min(w,h)*0.52+30;let a=Math.random()*6.283+r*0.008;let s=0.0008+Math.random()*0.0022;let c=Math.random()<0.55?'#ffeb3b':'#ab47bc';particles.push(new P(a,r,s,c))}
-function loop(){ctx.fillStyle='rgba(7,0,16,0.32)';ctx.fillRect(0,0,w,h);ctx.fillStyle='#000';ctx.beginPath();ctx.arc(cx,cy,32,0,6.283);ctx.fill();particles.forEach(p=>{p.up();p.draw()});requestAnimationFrame(loop)}loop();
-function spawnFlower(){const f=document.createElement('div');f.className='flower';f.textContent=Math.random()<0.5?'🌻':'🌼';f.style.left=Math.random()*100+'vw';f.style.fontSize=(16+Math.random()*22)+'px';f.style.animationDuration=(4+Math.random()*5)+'s';flowers.appendChild(f);setTimeout(()=>f.remove(),9000)}setInterval(spawnFlower,280);
-const tap=document.getElementById('tap'),initBtn=document.getElementById('initBtn'),musicBtn=document.getElementById('musicBtn');
-let playing=false;
-function start(){tap.classList.add('hidden');if(ready&&!playing){player.playVideo();playing=true;musicBtn.textContent='⏸️ Pausar'}}
-initBtn.onclick=start;
-musicBtn.onclick=()=>{if(!ready)return;if(playing){player.pauseVideo();playing=false;musicBtn.textContent='🎵 Toca para nuestra canción'}else{player.playVideo();playing=true;musicBtn.textContent='⏸️ Pausar'}};
-</script>
-</body>
-</html>
+const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');let w,h,stars=[];function rs(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<180;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2,a:Math.random()});
+function loop(){ctx.clearRect(0,0,w,h);stars.forEach(s=>{ctx.fillStyle='#ffec8b';ctx.globalAlpha=0.15+Math.random()*0.6;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.283);ctx.fill()});requestAnimationFrame(loop)}loop();
+
+const sun=document.getElementById('sun');
+for(let i=0;i<16;i++){const p=document.createElement('div');p.className='petal';p.style.transform=`translate(-50%,-100%) rotate(${i*22.5}deg)`;sun.appendChild(p)}
+const cp=document.createElement('div');cp.className='centerPhoto';cp.innerHTML='<img src="esposa.jpg">';sun.appendChild(cp);
+
+const frases=[
+"🌻 Esta flor guarda un abrazo para ti","Contigo el día pesa menos","Tu amistad, mi lugar favorito","Esta flor te recuerda cuánto vales",
+"Hoy celebro tenerte","Que esta flor te alcance donde estés","Un ramo de gracias por estar ahí","Miras lo bueno, como el girasol",
+"Tu risa hace brillar mi día","21 de septiembre, contigo siempre","Un girasol para quien ilumina mis días","Aquí siempre tienes un lugar",
+"Contigo hasta lo simple brilla","Feliz día, pienso en ti con cariño","Gracias por tu amistad","Contigo bien a mis días",
+"Jetzul Adaly, mi universo eres tú 💜","Para mi esposa hermosa 🌻","Te amo más que a las flores amarillas","Mi Galaxia eres tú"
+];
+const texts=document.getElementById('texts');
+frases.forEach((f,i)=>{
+const d=document.createElement('div');d.className=i%4==0?'t big':'t';d.textContent=f;
+d
